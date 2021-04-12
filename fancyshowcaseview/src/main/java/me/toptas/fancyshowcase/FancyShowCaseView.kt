@@ -115,8 +115,6 @@ class FancyShowCaseView @JvmOverloads constructor(context: Context, attrs: Attri
     }
 
     private fun focus() {
-        props.focusingListener?.onBeforeFocus()
-        presenter.calculations()
         mRoot = activity.rootView()
         mRoot?.postDelayed(Runnable {
             if (activity.isFinishing) {
@@ -125,6 +123,8 @@ class FancyShowCaseView @JvmOverloads constructor(context: Context, attrs: Attri
             val visibleView = activity.attachedShowCase()
             isClickable = !props.enableTouchOnFocusedView
             if (visibleView == null) {
+                props.focusingListener?.onBeforeFocus()
+                presenter.calculations()
                 tag = CONTAINER_TAG
                 id = R.id.fscv_id
 
