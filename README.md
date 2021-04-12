@@ -17,6 +17,7 @@
 </p>
 
 ## Features
+*   Added a listener for doing UI changes on screen manually right before view shown and related calculations happen
 *   Circular reveal animation (API Level 21+)
 *   Focus on a specific view or position
 *   Background color
@@ -44,7 +45,7 @@ allprojects {
 Then, add the library to your module `build.gradle`
 ```gradle
 dependencies {
-    implementation 'com.github.faruktoptas:FancyShowCaseView:1.3.5'
+    implementation 'com.github.asozcan:FancyShowCaseView:1.3.6'
 }
 ```
 

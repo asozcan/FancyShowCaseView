@@ -24,6 +24,7 @@ import kotlinx.android.synthetic.main.activity_queue.*
 import me.toptas.fancyshowcase.FancyShowCaseQueue
 import me.toptas.fancyshowcase.FancyShowCaseView
 import me.toptas.fancyshowcase.listener.DismissListener
+import me.toptas.fancyshowcase.listener.FocusingListener
 import me.toptas.fancyshowcase.listener.OnViewInflateListener
 
 class CustomQueueActivity : BaseActivity() {
@@ -80,6 +81,11 @@ class CustomQueueActivity : BaseActivity() {
                 .customView(R.layout.layout_my_custom_view, object : OnViewInflateListener {
                     override fun onViewInflated(view: View) {
                         view.findViewById<View>(R.id.btn_action_1).setOnClickListener(mClickListener)
+                    }
+                })
+                .focusingListener(object:FocusingListener{
+                    override fun onBeforeFocus() {
+                        Log.v("asd","right before focus calculations")
                     }
                 })
                 .closeOnTouch(false)

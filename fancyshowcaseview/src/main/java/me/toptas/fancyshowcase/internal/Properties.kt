@@ -5,10 +5,7 @@ import android.text.Spanned
 import android.view.ViewGroup
 import android.view.animation.Animation
 import me.toptas.fancyshowcase.FocusShape
-import me.toptas.fancyshowcase.listener.AnimationListener
-import me.toptas.fancyshowcase.listener.DismissListener
-import me.toptas.fancyshowcase.listener.OnQueueListener
-import me.toptas.fancyshowcase.listener.OnViewInflateListener
+import me.toptas.fancyshowcase.listener.*
 
 internal data class Properties(
         var title: String? = null,
@@ -46,7 +43,8 @@ internal data class Properties(
         var dismissListener: DismissListener? = null,
         var queueListener: OnQueueListener? = null,
         var focusedView: IFocusedView? = null,
-        var clickableView: IFocusedView? = null
+        var clickableView: IFocusedView? = null,
+        var focusingListener: FocusingListener? = null
 )
 
 internal data class AndroidProperties(

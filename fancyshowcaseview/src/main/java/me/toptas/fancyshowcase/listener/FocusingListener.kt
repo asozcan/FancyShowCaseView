@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. Faruk Toptaş
+ * Copyright (c) 2018. Faruk Toptaş
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,15 +16,13 @@
 
 package me.toptas.fancyshowcase.listener
 
+import android.view.View
 import me.toptas.fancyshowcase.FancyShowCaseView
 
 /**
- * Listener for FancyShowCaseQueue next item
+ * Listener for custom view inflation
  */
-interface OnQueueListener {
 
-    /**
-     * Triggers before showing the next item in a FancyShowCaseQueue
-     */
-    fun onNext()
+interface FocusingListener {
+    fun onBeforeFocus()
 }

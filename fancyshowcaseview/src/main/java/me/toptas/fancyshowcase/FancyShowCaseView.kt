@@ -51,10 +51,7 @@ import me.toptas.fancyshowcase.internal.Presenter
 import me.toptas.fancyshowcase.internal.Properties
 import me.toptas.fancyshowcase.internal.SharedPrefImpl
 import me.toptas.fancyshowcase.internal.getStatusBarHeight
-import me.toptas.fancyshowcase.listener.AnimationListener
-import me.toptas.fancyshowcase.listener.DismissListener
-import me.toptas.fancyshowcase.listener.OnQueueListener
-import me.toptas.fancyshowcase.listener.OnViewInflateListener
+import me.toptas.fancyshowcase.listener.*
 import kotlin.math.hypot
 
 /**
@@ -118,6 +115,7 @@ class FancyShowCaseView @JvmOverloads constructor(context: Context, attrs: Attri
     }
 
     private fun focus() {
+        props.focusingListener?.onBeforeFocus()
         presenter.calculations()
         mRoot = activity.rootView()
         mRoot?.postDelayed(Runnable {
@@ -455,6 +453,14 @@ class FancyShowCaseView @JvmOverloads constructor(context: Context, attrs: Attri
          * @return Builder
          */
         fun animationListener(listener: AnimationListener) = apply { props.animationListener = listener }
+
+        /**
+         * Listener for catching focusing to another showcase view. Useful for queues if there need to be any UI update before showing next showcase
+         *
+         * @param listener focus listener
+         * @return Builder
+         */
+        fun focusingListener(listener: FocusingListener) = apply { props.focusingListener = listener }
 
         /**
          * @param exitAnimation exit animation for FancyShowCaseView
