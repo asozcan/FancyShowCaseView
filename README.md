@@ -45,7 +45,7 @@ allprojects {
 Then, add the library to your module `build.gradle`
 ```gradle
 dependencies {
-    implementation 'com.github.asozcan:FancyShowCaseView:v1.3.6'
+    implementation 'com.github.asozcan:FancyShowCaseView:1.3.7'
 }
 ```
 
